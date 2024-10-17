@@ -1,20 +1,28 @@
 package ud1.ejercicios.nao20241010;
 
 import java.util.Scanner;
+/**
+ * Desarrolla un programa en Java que convierta unidades de almacenamiento entre bytes, kilobytes (KB), megabytes (MB) y gigabytes (GB). Solicita al usuario la cantidad de datos y la unidad de origen y destino.
 
+1 KB = 1024 bytes
+1 MB = 1024 KB
+1 GB = 1024 MB
+El programa deberá realizar la conversión correspondiente y mostrar el resultado.
+
+ */
 public class EP0133_ConversionAlmacenamientoDatos {
     public static void main(String[] args) {
         // Datos
         double cantidadOrigen, cantidadDestino;
         char udMedidaOrigen, udMedidaDestino;
         final int MULTIPLO_KB = 1024;
-        final int MULTIPLO_MB = 1024 * 1024;
-        final int MULTIPLO_GB = 1024 * 1024 * 1024;
+        final int MULTIPLO_MB = MULTIPLO_KB * MULTIPLO_KB;
+        final int MULTIPLO_GB = MULTIPLO_KB * MULTIPLO_KB * MULTIPLO_KB;
 
         // Entrada
         Scanner sc = new Scanner(System.in);
         System.out.print("Escribe la cantidad de datos a convertir: ");
-        cantidadOrigen = sc.nextDouble(); sc.nextLine();
+        cantidadOrigen = sc.nextDouble(); sc.nextLine(); 
         System.out.print("Unidad de medida de Origen (b=bytes; k=kilobytes; m=megabytes; g=gigabytes):");
         udMedidaOrigen = sc.nextLine().charAt(0);
         System.out.print("Unidad de medida de Destino:");
