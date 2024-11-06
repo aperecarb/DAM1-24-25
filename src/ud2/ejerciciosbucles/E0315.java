@@ -15,7 +15,7 @@ public static void main(String[] args) {
 
     // Proceso & Salida
     for (int i = 0; i < numero; i++) {
-        for (int j = numero - i; j > 0; j--) {
+        for (int j = 0; j < numero - i; j++) {
             System.out.print("* ");
         }
         System.out.println("");
