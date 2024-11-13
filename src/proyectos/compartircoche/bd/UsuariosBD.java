@@ -180,8 +180,8 @@ public class UsuariosBD {
             conexion.close();
             return resultado == 1;
         } catch (SQLException e) {
-            // e.printStackTrace();
-            System.out.println("Error al crear el usuario");
+            e.printStackTrace();
+            //System.out.println("Error al crear el usuario");
             return false;
         }
     }
