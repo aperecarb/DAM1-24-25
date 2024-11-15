@@ -18,9 +18,9 @@ public class E0404 {
 
     @Test
     public void testMaximo() {
-        assertEquals(10, E0404.maximo(5, 10));
-        assertEquals(10, E0404.maximo(10, 5));
-        assertEquals(5, E0404.maximo(5, 5));
+        assertEquals(10, maximo(5, 10));
+        assertEquals(10, maximo(10, 5));
+        assertEquals(5, maximo(5, 5));
     }
 
 }
