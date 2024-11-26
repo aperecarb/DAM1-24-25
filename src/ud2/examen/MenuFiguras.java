@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class MenuFiguras {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int opcion;
         int errores = 0;
+        final int MAX_ERRORES = 3;
 
-        while (true) {
+        do {
             mostrarMenu();
-            int opcion = leer(sc);
-
+            opcion = leer(sc);            
             switch (opcion) {
                 case 1:
                     System.out.println(dibujarTriangulo(sc));
@@ -24,12 +25,12 @@ public class MenuFiguras {
                 default:
                     errores++;
                     System.out.println("Opción inválida, errores: " + errores + "/3");
-                    if (errores == 3) {
+                    if (errores == MAX_ERRORES) {
                         System.out.println("Número de errores excedido, saliendo del programa");
                         break;
                     }
             }
-        }
+        } while (opcion != 0 && errores < MAX_ERRORES);
     }
 
     public static void mostrarMenu() {
