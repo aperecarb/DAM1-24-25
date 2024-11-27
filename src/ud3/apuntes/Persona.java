@@ -17,7 +17,7 @@ public class Persona {
     }    
 
     Persona(String nombre) {
-        this.nombre = nombre;
+        this(nombre, 0, 0.4);        
     }    
     Persona (String nombre, int edad, double estatura) {
         this.nombre = nombre; //asigna el parámetro al atributo
