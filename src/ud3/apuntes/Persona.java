@@ -13,19 +13,19 @@ public class Persona {
     
 
     // CONSTRUCTORES
-    Persona() {
+    public Persona() {
     }    
 
-    Persona(String nombre) {
+    public Persona(String nombre) {
         this(nombre, 0, 0.4);        
     }    
-    Persona (String nombre, int edad, double estatura) {
+    public Persona (String nombre, int edad, double estatura) {
         this.nombre = nombre; //asigna el parámetro al atributo
         this.edad = edad;
         this.estatura = estatura;
      }
   
-    Persona(String nombre, int edad) {                                                                     
+     public Persona(String nombre, int edad) {                                                                     
         this.nombre = nombre;
         this.edad = edad;
         contadorPersonas++;
