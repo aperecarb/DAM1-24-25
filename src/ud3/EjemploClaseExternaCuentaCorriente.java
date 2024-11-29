@@ -1,7 +1,9 @@
-package ud3.apuntes;
+package ud3;
 
-public class EjemploCuentaCorriente {
+import ud3.apuntes.CuentaCorriente;
+import ud3.apuntes.Gestor;
 
+public class EjemploClaseExternaCuentaCorriente {
     public static void main(String[] args) {
         CuentaCorriente cc = new CuentaCorriente("55555555Z", "Pepe", 1000);
         CuentaCorriente cc2 = new CuentaCorriente("33333333R", "María", 2000);
@@ -14,6 +16,6 @@ public class EjemploCuentaCorriente {
 
         Gestor gestor = new Gestor("Gestoría Pepe", "986868686");
         cc.setGestor(gestor);
-        System.out.println(cc.getGestor().nombre + "(" + cc.getGestor().telefono + ")");      
+        cc.getGestor().mostrar();     
     }
 }

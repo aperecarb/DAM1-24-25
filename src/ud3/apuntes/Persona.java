@@ -8,11 +8,26 @@ public class Persona {
     private int edad;
     private double estatura = 1.80;
     private final String dni = null;
+    enum Sexo {HOMBRE, MUJER, NO_BINARIO}
+    private Sexo sexo;
+    DiaDeLaSemana diaPreferido;
 
     public static int contadorPersonas;
 
     // CONSTRUCTORES
     public Persona() {
+    }
+
+    
+
+    public Persona(String nombre, Sexo sexo) {
+        this.nombre = nombre;
+        this.sexo = sexo;
+    }
+
+    public Persona(String nombre, String sexo) {
+        this.nombre = nombre;
+        this.sexo = Sexo.valueOf(sexo);
     }
 
     public Persona(String nombre) {

@@ -9,7 +9,14 @@ public class Gestor {
         this.nombre = nombre;
         this.telefono = telefono;
         this.importeMax = 10000;
-    } 
+    }
 
+    public double getImporteMax() {
+        return importeMax;
+    }
+
+    public void mostrar() {
+        System.out.println("GESTOR: " + nombre + "(" + telefono + ")"  + " IMA: " + importeMax);
+    }
     
 }
