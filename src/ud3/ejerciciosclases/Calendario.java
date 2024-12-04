@@ -25,7 +25,7 @@ public class Calendario {
         mes++;
         if (mes > 12) {
             mes = 1;
-            anho++;
+            incrementarAño(1);
         }
     }
 
@@ -68,8 +68,39 @@ public class Calendario {
         return diaCorrecto && mesCorrecto && anhoCorrecto;
     }    
     
+
+    public boolean iguales(Calendario otraFecha) {
+        return dia == otraFecha.dia && mes == otraFecha.mes && anho == otraFecha.anho;
+        /*boolean iguales = true;
+            if (dia != otraFecha.dia)
+                iguales = false;
+            else if (mes != otraFecha.mes){
+                iguales = false;
+            } else if (anho != otraFecha.anho)
+                iguales = false;
+
+        return iguales;*/
+    }
+
+
+
     public void mostrar() {
         System.out.println(dia + "/" + mes + "/" + anho);
     }
 
+    public int getAnho() {
+        return anho;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+
+
+    
 }
