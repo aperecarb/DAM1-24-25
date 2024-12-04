@@ -29,8 +29,10 @@ public class Calendario {
         }
     }
 
-    void incrementarAño(int cantidad) {
+    void incrementarAño(int cantidad) {        
         anho += cantidad;
+        if (anho == 0) 
+            anho = cantidad < 0 ? -1 : 1;
     }
 
     public static int diasMes(int mes, int anho) {
@@ -51,20 +53,23 @@ public class Calendario {
             default:
                 return 31;
         }
-    }
-        
+    }        
 
     public static boolean esBisiesto(int anho) {
         return ((anho % 4 == 0) && (anho % 100 != 0) || (anho % 400 == 0));                                          
     }
 
     public static boolean fechaCorrecta(int anho, int mes, int dia) {
-        boolean diaCorrecto, mesCorrecto, anyoCorrecto;
-        anyoCorrecto = (anho > 0);
+        boolean diaCorrecto, mesCorrecto, anhoCorrecto;
+        anhoCorrecto = (anho != 0);
         mesCorrecto = (mes >= 1) && (mes <= 12);
         diaCorrecto = (dia >= 1 && dia <= diasMes(mes, anho));
 
-        return diaCorrecto && mesCorrecto && anyoCorrecto;
+        return diaCorrecto && mesCorrecto && anhoCorrecto;
     }    
     
+    public void mostrar() {
+        System.out.println(dia + "/" + mes + "/" + anho);
+    }
+
 }
