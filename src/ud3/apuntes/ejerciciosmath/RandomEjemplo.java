@@ -7,9 +7,9 @@ public class RandomEjemplo {
         final int MIN = 100;
         final int MAX = 200;
 
-        //Random rndRandom = new Random();
+        Random rndRandom = new Random();
         // Si inicializamos la semilla con un valor fijo, los números "aleatorios" serán siempre los mismos.
-        Random rndRandom = new Random(7);
+        //Random rndRandom = new Random(7);
 
         // Número entero aleatorio
         System.out.println(rndRandom.nextInt());

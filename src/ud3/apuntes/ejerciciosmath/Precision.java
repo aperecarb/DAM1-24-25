@@ -15,6 +15,6 @@ public class Precision {
         
         BigDecimal sumaPrecisa = centimo.add(centimo).add(centimo).add(centimo).add(centimo).add(centimo);
 
-        System.out.println("Suma precisa con BigDecumal: " + sumaPrecisa);
+        System.out.println("Suma precisa con BigDecimal: " + sumaPrecisa);
     }
 }
