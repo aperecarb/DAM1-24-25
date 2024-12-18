@@ -21,9 +21,9 @@ public class CocheCarreras {
         this.maxTurbos = maxTurbos < 0 ? 0 : maxTurbos;
         this.maxAutonomia = maxAutonomia < 0 ? 0 : maxAutonomia;
 
-        distanciaRecorrida = 0;
-        autonomiaRestante = maxAutonomia;
-        turbosRestantes = maxTurbos;
+        this.distanciaRecorrida = 0;
+        this.autonomiaRestante = this.maxAutonomia;
+        this.turbosRestantes = this.maxTurbos;
     }
 
     public CocheCarreras(String nombre, int velocidadMaxima, int maxAutonomia) {
