@@ -6,15 +6,17 @@ import ud4.ArraysUtil;
 
 public class E0507 {
     static Integer[] sinRepetidos(Integer t[]) {
-        Integer[] tOrdenado = t.clone();
-        Arrays.sort(tOrdenado);
-        
+        if (t == null)
+            return null;
+            
         Integer[] sinRepetidos = new Integer[0];
         for (int i = 0; i < t.length; i++) {
             boolean repetido = false;
-            for (int j = 0; j < sinRepetidos.length; j++){
+            int j = 0;
+            while (j < sinRepetidos.length && !repetido){
                 if (t[i] == sinRepetidos[j])
                     repetido = true;
+                j++;                    
             }
             if (!repetido) {
                 sinRepetidos = Arrays.copyOf(sinRepetidos, sinRepetidos.length + 1);
@@ -31,6 +33,8 @@ public class E0507 {
         System.out.println(Arrays.toString(t));
 
         t = sinRepetidos(t);
+
+        t = sinRepetidos(null);
 
         System.out.println(Arrays.toString(t));        
     }
