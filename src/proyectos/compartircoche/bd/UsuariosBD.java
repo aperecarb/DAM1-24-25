@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.Scanner;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
@@ -145,11 +146,14 @@ public class UsuariosBD {
      */
     public static String iniciarSesion() {
         do {
+            Scanner sc = new Scanner(System.in);
             System.out.println("LOGIN DE USUARIO");
             System.out.print("Usuario: ");
-            String usuario = System.console().readLine();
+            //String usuario = System.console().readLine();
+            String usuario = sc.nextLine();
             System.out.print("Contraseña: ");
-            String password = new String(System.console().readPassword());
+            //String password = new String(System.console().readPassword());
+            String password = sc.nextLine();
             if (loginUsuario(usuario, password)) {
                 return usuario;
             } else {
@@ -190,6 +194,7 @@ public class UsuariosBD {
      * Método principal de ejemplo
      */
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         System.out.println("\n*******************");
         System.out.println("GESTIÓN DE USUARIOS");
         System.out.println("*******************\n");
@@ -205,7 +210,8 @@ public class UsuariosBD {
 
             System.out.println();
             System.out.print("Opción: ");
-            opcion = System.console().readLine();
+            //opcion = System.console().readLine();
+            opcion = sc.nextLine();
             System.out.println();
 
             switch (opcion) {
