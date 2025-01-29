@@ -1,5 +1,6 @@
 package ud4.stringsapuntes;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class E0610 {
@@ -7,6 +8,11 @@ public class E0610 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduzca una frase: ");
         String frase = sc.nextLine();
+
+        char[] letras = frase.toCharArray();
+        System.out.println(Arrays.toString(letras));
+
+        System.out.println(String.valueOf(letras));
 
         if (esPalindromo(frase))
             System.out.println("Es Palíndromo");
@@ -27,11 +33,11 @@ public class E0610 {
             char letra = Character.toLowerCase(frase.charAt(i));
             if (letra != ' ') {
                 switch (letra) {
-                    case 'á': letra = 'a'; break;
-                    case 'é': letra = 'e'; break;
-                    case 'í': letra = 'i'; break;
-                    case 'ó': letra = 'o'; break;
-                    case 'ú': letra = 'u'; break;
+                    case 'á' -> letra = 'a';
+                    case 'é' -> letra = 'e';
+                    case 'í' -> letra = 'i';
+                    case 'ó' -> letra = 'o';
+                    case 'ú' -> letra = 'u';
                 }
                 fraseInvertida += letra;
             }
@@ -42,15 +48,16 @@ public class E0610 {
 
     static String sinEspacios(String frase) {
         String fraseSinEspacios = "";
+
         for (int i = 0; i < frase.length() ; i++) {
             char letra = Character.toLowerCase(frase.charAt(i));
             if (letra != ' ') {
                 switch (letra) {
-                    case 'á': letra = 'a'; break;
-                    case 'é': letra = 'e'; break;
-                    case 'í': letra = 'i'; break;
-                    case 'ó': letra = 'o'; break;
-                    case 'ú': letra = 'u'; break;
+                    case 'á' -> letra = 'a';
+                    case 'é' -> letra = 'e';
+                    case 'í' -> letra = 'i';
+                    case 'ó' -> letra = 'o';
+                    case 'ú' -> letra = 'u';
                 }
                 fraseSinEspacios += letra;
             }
