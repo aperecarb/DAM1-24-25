@@ -17,7 +17,7 @@ public class E0612 {
         System.out.println("askjdh as  alksjdh  aslkdjhasd   alskjdhaskljdhs adasd".replaceAll("\\s", ""));
     }
 
-    private static boolean sonAnagrama(String cad1, String cad2) {
+    public static boolean sonAnagrama(String cad1, String cad2) {
         char[] t1 = cad1.toLowerCase().toCharArray();
         char[] t2 = cad2.toLowerCase().toCharArray();
 
