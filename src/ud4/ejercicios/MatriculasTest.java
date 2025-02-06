@@ -1,8 +1,6 @@
-package ud4.arraysejercicios;
+package ud4.ejercicios;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MatriculasTest {
 

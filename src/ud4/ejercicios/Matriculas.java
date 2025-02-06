@@ -1,4 +1,4 @@
-package ud4.arraysejercicios;
+package ud4.ejercicios;
 
 public class Matriculas {
 

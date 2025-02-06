@@ -1,4 +1,4 @@
-package ud4.arraysejercicios;
+package ud4.ejercicios;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;

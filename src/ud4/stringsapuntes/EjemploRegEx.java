@@ -8,6 +8,7 @@ class EjemploRegEx {
 
         String respuesta;
         boolean siguePatron;
+
         Scanner sc = new Scanner(System.in);
         do{
             System.out.print("Escribe una matrícula: ");
