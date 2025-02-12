@@ -4,5 +4,6 @@
 
 # Archivos de compilación
 *.class
-bin/
 DAM1-24-25.iml
+/out/
+/bin/
