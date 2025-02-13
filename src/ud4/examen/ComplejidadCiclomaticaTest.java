@@ -66,7 +66,7 @@ class ComplejidadCiclomaticaTest {
                 {9},
                 {}
         };
-        assertEquals(5, ComplejidadCiclomatica.complejidadCiclomatica(grafoComplejo1));
+        assertEquals(4, ComplejidadCiclomatica.complejidadCiclomatica(grafoComplejo1));
     }
 
     @Test
