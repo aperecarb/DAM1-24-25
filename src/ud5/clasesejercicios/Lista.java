@@ -107,7 +107,7 @@ public class Lista {
         l.insertarFinal(7);
         l.insertarInicio(6);
         l.insertarInicio(6);
-        l.insertarFinal(7); // 6677
+        l.insertarFinal(7);   // 6677
         l.insertarEn(5, 2); // 66577
         l.mostrar();
         
