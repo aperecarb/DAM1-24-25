@@ -42,9 +42,9 @@ public class LeerEnteroTest {
         assertEquals(5, resultado);
     }
 
-    /*@Test
+    @Test
     void testMinMaiorQueMaxLanzaExcepcion() {
-        assertThrows(IllegalArgumentException.class, () -> leerEntero(10, 1));
-    }*/
+        assertThrows(IllegalArgumentException.class, () -> BuscaTesouro.leerEntero(10, 1));
+    }
 }
 

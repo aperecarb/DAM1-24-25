@@ -74,6 +74,10 @@ public class BuscaTesouro {
     }
 
     static int leerEntero(int min, int max) {
+        if (min > max) {
+            throw new IllegalArgumentException("El valor mínimo no puede ser mayor que el máximo.");
+        }        
+
         int num = -1;
         boolean numCorrecto = false;
         Scanner sc = new Scanner(System.in);
