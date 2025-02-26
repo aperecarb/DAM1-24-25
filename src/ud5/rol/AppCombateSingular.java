@@ -31,6 +31,7 @@ public class AppCombateSingular {
         System.out.println("Pulsa [ENTER] para empezar el combate");
         new Scanner(System.in).nextLine();
 
+
         // Los personajes se atacan alternativamente mientras ambos sigan vivos
         do {
             if (turnoPj1)
