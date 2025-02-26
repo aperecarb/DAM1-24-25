@@ -13,7 +13,27 @@ public class AppCreaPersonaje {
         if (p != null) {
             System.out.println("Personaje cargado actualmente:");
             p.mostrar();
+            // Quieres sobreescribirlo?
+        } else {
+            p = crearPersonaje();
         }
+
+        // Mostrar el personaje
+        p.mostrar();
+        System.out.println(p);
+        // Opcional: guardar en fichero de texto JSON.        
+        Util.exportarJson(p);
+       
+
+        // Personaje aragorn = new Personaje("Aragorn", "fassadad", 98, 87, 67,15,
+        // 15785, 150);
+
+    }
+
+    static Personaje crearPersonaje() {
+        String nombre = null;
+        Raza raza = null;
+        int nivel = 0, exp = 0, fuerza = 0, agilidad = 0, constitucion = 0;
 
         Scanner sc = new Scanner(System.in);
 
@@ -25,49 +45,59 @@ public class AppCreaPersonaje {
         int opcion = sc.nextInt();
         sc.nextLine(); // captura el [ENTER] de la entrada anterior
 
-        Personaje personaje = null;
         int puntosVida = -1;
 
+        // switch para solicitar los atributos
         switch (opcion) {
             case 4:
                 System.out.print("Nivel: ");
-                int nivel = sc.nextInt();
+                nivel = sc.nextInt();
                 System.out.print("Experiencia: ");
-                int exp = sc.nextInt();
+                exp = sc.nextInt();
                 System.out.print("Puntos de vida: ");
                 puntosVida = sc.nextInt();
             case 3:
                 System.out.print("Fuerza: ");
-                int fuerza = sc.nextInt();
+                fuerza = sc.nextInt();
                 System.out.print("Agilidad: ");
-                int agilidad = sc.nextInt();
+                agilidad = sc.nextInt();
                 System.out.print("Constitución: ");
-                int constitucion = sc.nextInt();
+                constitucion = sc.nextInt();
                 if (puntosVida == -1) {
                     puntosVida = constitucion + Personaje.PUNTOS_VIDA_BASE;
                 }
             case 2:
                 try {
                     System.out.println("Raza: ");
-                    Raza raza = Raza.valueOf(sc.nextLine().toUpperCase());
+                    raza = Raza.valueOf(sc.nextLine().toUpperCase());
 
                 } catch (Exception e) {
                     System.out.println(
                             "Error!! La raza debe ser una de las siguientes: " + Arrays.toString(Raza.values()));
+
                 }
-            case 1: /* .. */
+            case 1:
                 System.out.println("Nombre: ");
-                String nombre = sc.nextLine();
+                nombre = sc.nextLine();
+        }
+        sc.close();
+
+        // switch para crear el personaje
+        Personaje p = null;
+        switch (opcion) {
+            case 1:
+                p = new Personaje(nombre);
+                break;
+            case 2:
+                p = new Personaje(nombre, raza);
+                break;
+            case 3:
+                p = new Personaje(nombre, raza, fuerza, agilidad, constitucion);
+                break;
+            case 4:
+                p = new Personaje(nombre, raza, fuerza, agilidad, constitucion, nivel, exp, puntosVida);
                 break;
         }
-        // Mostrar el personaje
-        personaje.mostrar();
-        System.out.println(personaje);
-        Util.exportarJson(personaje);
-        // Opcional: guardar en fichero de texto JSON.
-
-        // Personaje aragorn = new Personaje("Aragorn", "fassadad", 98, 87, 67,15,
-        // 15785, 150);
-
+        return p;
     }
 }

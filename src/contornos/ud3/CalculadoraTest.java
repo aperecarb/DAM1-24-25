@@ -12,7 +12,7 @@ public class CalculadoraTest {
     public void testDivisionPorCero() {
         Calculadora calcu = new Calculadora(10, 0);
         try {
-            int resultado = calcu.divide();
+            calcu.divide();
             fail ("Debería das una excepción");
         } catch (Exception e) {
             // TODO: handle exception

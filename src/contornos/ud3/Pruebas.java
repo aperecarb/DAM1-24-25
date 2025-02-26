@@ -14,12 +14,11 @@ public class Pruebas {
                 sumaDivisores = sumaDivisores + divisor;
             divisor++;
         }
-        
+
         if (num == sumaDivisores)
             return true;
         else
             return false;
-
     }
 
     // Método que cuente cuántos número de un array de entrada son pares y cuántos

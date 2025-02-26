@@ -1,21 +1,18 @@
 package ud5.herenciaejercicios.EP0812a3;
 
 public class Caja {
-    int ancho, alto, fondo;
+    final int ancho, alto, fondo;
     String etiqueta;
 
-    enum Unidad {cm, m};
+    enum Unidad {CM, M};
 
     Caja(int ancho, int alto, int fondo, Unidad unidad) {
         int multiplicador = switch (unidad) {
-            case cm -> 1;
-            case m -> 100;
-            default -> 0;
+            case CM -> 1;
+            case M -> 100;
         };
 
-        if (multiplicador == 0)
-            throw new IllegalArgumentException("La unidad de medida es incorrecta");
-        else if (ancho <= 0 || alto <= 0 || fondo <= 0)
+        if (ancho <= 0 || alto <= 0 || fondo <= 0)
             throw new IllegalArgumentException("Ancho, alto o fondo incorrecto");
 
         this.ancho = ancho * multiplicador;
@@ -25,7 +22,7 @@ public class Caja {
 
     // Volumen
     double getVolumen() {
-        return ancho * alto * fondo / 1000000;
+        return ancho * alto * fondo / 1000000.0;
     }
 
     public void setEtiqueta(String etiqueta) {
@@ -35,15 +32,25 @@ public class Caja {
 
     @Override
     public String toString() {
-        return "Caja de " + ancho + "x" + alto + "x" + fondo
-                + " (" + etiqueta + ")";
+        String str = "Caja de " + ancho + "x" + alto + "x" + fondo
+                + " cm";
+        if (etiqueta != null) 
+            str += " (" + etiqueta + ")";
+        return str;
     }
 
     public static void main(String[] args) {
-        Caja caja1 = new Caja(100, 100, 100, Unidad.cm);
+        Caja caja1 = new Caja(2, 2, 2, Unidad.M);
         caja1.setEtiqueta("Para: IES Chan do Monte");
         System.out.println(caja1);
-        System.out.println("Volumen: " + caja1.getVolumen());
+        System.out.printf("Volumen: %.2f m2 %n", caja1.getVolumen());
+        System.out.println();
+
+        CajaCarton cajaCarton = new CajaCarton(50, 80, 100);
+        cajaCarton.setEtiqueta("Caja de Cartón");
+        System.out.println(cajaCarton);
+        System.out.printf("Volumen: %.2f m2 %n", cajaCarton.getVolumen());
+        System.out.printf("Superficie: %.2f cm2 %n", cajaCarton.getSuperficie());
     }
 
 }
