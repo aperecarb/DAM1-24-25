@@ -8,4 +8,8 @@ public class CodificandoMorse {
                 "-.-.--", "..--.." };
         return 0;
     }
+
+    public static String codificaMorse(String s) {
+        return null;
+    }
 }
