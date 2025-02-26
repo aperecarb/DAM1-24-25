@@ -4,19 +4,33 @@ import java.util.Scanner;
 
 public class Pruebas {
 
+    public boolean esNumeroPerfecto(int num) {
+        int divisor, sumaDivisores;
+        divisor = 1;
+        sumaDivisores = 0;
 
-    public boolean esNumeroPerfecto(int n) {
-        return true;
+        while (divisor < num / 2) {
+            if (num % divisor == 0)
+                sumaDivisores = sumaDivisores + divisor;
+            divisor++;
+        }
+        
+        if (num == sumaDivisores)
+            return true;
+        else
+            return false;
+
     }
 
-    // Método que cuente cuántos número de un array de entrada son pares y cuántos son impares
+    // Método que cuente cuántos número de un array de entrada son pares y cuántos
+    // son impares
     static int[] contarParesImpares(int[] numeros) {
         // NODO 1
         int contPares = 0;
         int contImpares = 0;
 
         // NODO 2
-        for (int n : numeros) {            
+        for (int n : numeros) {
             // NODO 3
             if (n % 2 == 0) {
                 // NODO 4
@@ -28,12 +42,12 @@ public class Pruebas {
         }
 
         // NODO 8
-        int[] contadores = {contPares, contImpares};
+        int[] contadores = { contPares, contImpares };
         return contadores;
-
     }
-    
-    // Método que lea 10 números de teclado y muestre cuántos son pares y cuántos son impares
+
+    // Método que lea 10 números de teclado y muestre cuántos son pares y cuántos
+    // son impares
     static void contarParesImpares() {
         // NODO 1
         int contPares = 0;
@@ -59,7 +73,5 @@ public class Pruebas {
         System.out.printf("Pares: %d\nImpares: %d ", contPares, contImpares);
 
     }
-
-
 
 }
