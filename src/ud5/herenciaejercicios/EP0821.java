@@ -12,12 +12,12 @@ public class EP0821 {
 
             // Si el resultado es un número entero, lo muestra como entero
             if (r - r.longValue() == 0) {
-                System.out.println("La suma es: " + r.intValue());
+                System.out.println("La suma es: " + r.longValue());
             } else {
                 System.out.println("La suma es: " + r);
             }
             return true;
-        } else if (a instanceof String && b instanceof String) {
+        } else if (a instanceof CharSequence && b instanceof CharSequence) {
             System.out.println("La concatenación es: " + a + b);
             return true;
         } else {
@@ -30,6 +30,7 @@ public class EP0821 {
         sumar(5, 6);
         sumar(5.5, 6.6);
         sumar("Hola", " Mundo");
+        sumar(new StringBuilder("Hola"), new StringBuilder("Mundo"));
         sumar(5, "Hola");
     }
 
