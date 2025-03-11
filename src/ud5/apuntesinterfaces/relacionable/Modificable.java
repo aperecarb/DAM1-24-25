@@ -1,6 +1,6 @@
 package ud5.apuntesinterfaces.relacionable;
 
-public interface Modificable{
+public interface Modificable {
     void aumentar(int n);
     void disminuir(int n);
 

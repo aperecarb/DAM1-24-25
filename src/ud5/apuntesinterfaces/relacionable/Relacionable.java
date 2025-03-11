@@ -10,4 +10,9 @@ public interface Relacionable {
         int posicion = clase.lastIndexOf(".");
         return clase.substring(posicion+1);
     }
+
+    static boolean esNull(Relacionable a){
+        return a == null;
+    }
+
 }

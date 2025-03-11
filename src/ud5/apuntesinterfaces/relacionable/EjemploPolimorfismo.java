@@ -22,6 +22,7 @@ public class EjemploPolimorfismo {
         array.add(new Fraccion(-2, 3));
 
         for (Relacionable r : array) {
+            System.out.println(r.nombreClase());
             System.out.println(r);
         }
     }

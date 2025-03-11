@@ -172,6 +172,7 @@ public class Fraccion implements Relacionable, Comparable<Fraccion> {
 
     public static void main(String[] args) {
 
+
         //Creamos dos fracciones y mostramos cuál es la mayor y cuál menor.
         Fraccion f1 = new Fraccion(3, 5);
         Fraccion f2 = new Fraccion(2, 8);

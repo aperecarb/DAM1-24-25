@@ -96,7 +96,6 @@ public class Linea implements Relacionable, Modificable {
         this.y2-=n;
     }
 
-
     @Override
     public String nombreClase() {
         return Relacionable.super.nombreClase();
