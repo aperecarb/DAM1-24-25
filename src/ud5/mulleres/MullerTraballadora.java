@@ -30,13 +30,13 @@ abstract class MullerTraballadora {
         Artista fridaKahlo = new Artista("Frida", "Kahlo", 1907, "Surrealismo e pintura autobiográfica");
         Politica rosaParks = new Politica("Rosa", "Parks", 1913, "Loita polos dereitos civís e contra a segregación racial");
         Cientifica adaLovelace = new Cientifica("Ada", "Lovelace", 1815, "Primeira programadora da historia");
-        //Escritora virginiaWoolf = new Escritora("Virginia", "Woolf", 1882, "Orlando e Un cuarto de seu");
-        //Deportista serenaWilliams = new Deportista("Serena", "Williams", 1981, "Ser a tenista con máis títulos de Grand Slam na era aberta");
-        //Sindicalista claraCampoamor = new Sindicalista("Clara", "Campoamor", 1888, "Conseguíu o sufraxio feminino en España");
+        Escritora virginiaWoolf = new Escritora("Virginia", "Woolf", 1882, "Orlando e Un cuarto de seu");
+        Deportista serenaWilliams = new Deportista("Serena", "Williams", 1981, "Ser a tenista con máis títulos de Grand Slam na era aberta");
+        Sindicalista claraCampoamor = new Sindicalista("Clara", "Campoamor", 1888, "Conseguíu o sufraxio feminino en España");
 
 
         // Uso dun array de polimorfismo
-        MullerTraballadora[] mulleres = {marieCurie, fridaKahlo, rosaParks, adaLovelace};
+        MullerTraballadora[] mulleres = {marieCurie, fridaKahlo, rosaParks, adaLovelace, virginiaWoolf,serenaWilliams, claraCampoamor};
 
         // Recorrer o array con polimorfismo
         System.out.println("=== Mulleres Traballadoras Destacadas ===");
