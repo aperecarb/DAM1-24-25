@@ -1,6 +1,9 @@
 package ud5.inmobiliaria;
 
-public abstract class Inmueble {
+import java.util.Arrays;
+import java.util.Comparator;
+
+public abstract class Inmueble implements Comparable{
     String direccion;
     int numHab;
     int numBanhos;
@@ -8,7 +11,6 @@ public abstract class Inmueble {
     int precioAlquiler;
     int precioVenta;
 
-    
     public Inmueble() {
     }
 
@@ -31,9 +33,65 @@ public abstract class Inmueble {
 
     @Override
     public String toString() {
-        return "Inmueble  en " + direccion + " (" +  m2 + " m2, " + numHab + " hab)";
+        return "Inmueble  en " + direccion + " (" + m2 + " m2, " + numHab + " hab)";
     }
 
+    static void mostrarInmuebles(Inmueble[] t) {
+        for (Inmueble i : t) {
+            System.out.println(i);
+        }
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return direccion.compareTo(((Inmueble) o).direccion);
+    }
+
+    /* MÉTODOS DE CORDENACIÓN */
+    static void sortMetrosDesc(Inmueble[] t) {
+        Arrays.sort(t,new ComparaMetros().reversed());
+    }
+
+    static void sortHabMetrosDesc(Inmueble[] t) {
+        Comparator comparaHab = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Inmueble i1 = (Inmueble) o1;
+                Inmueble i2 = (Inmueble) o2;
+                int res = i2.numHab - i1.numHab;
+                if (res == 0)                 {
+                    res = i2.m2 - i1.m2;
+                }
+                return res;
+            }            
+        };
+
+        Arrays.sort(t, comparaHab);
+        
+//        Arrays.sort(t, comparaHab.thenComparing(new ComparaMetros().reversed()));
+    }
+
+
+    static void sortPrecioAlquilerAsc(Inmueble[] t) {
+        Comparator comparaAlquiler = new Comparator() {
+
+            @Override
+            public int compare(Object o1, Object o2) {
+                Inmueble i1 = (Inmueble) o1;
+                Inmueble i2 = (Inmueble) o2;
+                return i1.precioAlquiler - i2.precioAlquiler;
+            }            
+        };
+
+        Arrays.sort(t, comparaAlquiler);        
+    }
+
+
+
+
+
+    /* GETTERS Y SETTERS  */
     public String getDireccion() {
         return direccion;
     }
@@ -74,7 +132,4 @@ public abstract class Inmueble {
         return precioVenta;
     }
 
-
-    
-    
 }
