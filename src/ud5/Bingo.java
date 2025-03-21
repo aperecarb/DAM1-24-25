@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Bingo {
-    static final int MAX_NUM = 99;
+    static final int MAX_NUM = 25;
     static Jugador[] jugadores;
     static int[] numerosSorteados = new int[0];
     static boolean linea = false;
@@ -68,19 +68,22 @@ public class Bingo {
             // Revisar Cartones Jugadores
             revisarCartonesJugadores();
             System.out.println("Pulsa ENTER para continuar");
-            new Scanner(System.in).nextLine();
+            // new Scanner(System.in).nextLine();
         } while (!bingo);
-        
+
         System.out.println("Fin del programa!");
     }
 
     /**
      * Revisa los cartones de cada jugador
      * Si no hay líneas ni bingos imprime un mensaje indicándolo y termina.
-     * Si hay líneas por primera vez, imprime los nombres de los jugadores y el número de cartón en que se consiguió la línea.
+     * Si hay líneas por primera vez, imprime los nombres de los jugadores y el
+     * número de cartón en que se consiguió la línea.
      * Puede haber más de una línea en el mismo turno.
-     * Una vez se han cantado líneas en los turnos anteriores ya no se imprimirán nuevas líneas.
-     * Si hay bingo por primera vez  imprime el nombre o los nombres de los jugadores y el número de cartón en que se consiguió el bingo.
+     * Una vez se han cantado líneas en los turnos anteriores ya no se imprimirán
+     * nuevas líneas.
+     * Si hay bingo por primera vez imprime el nombre o los nombres de los jugadores
+     * y el número de cartón en que se consiguió el bingo.
      */
     private static void revisarCartonesJugadores() {
         boolean nuevaLinea = false;
@@ -88,7 +91,8 @@ public class Bingo {
         for (Jugador jugador : jugadores) {
             for (Carton carton : jugador.cartones) {
                 switch (carton.revisarCarton(numerosSorteados)) {
-                    case 0: break;
+                    case 0:
+                        break;
                     case 1: // Línea (La cantamos si no se ha cantado en un turno anterior)
                         if (!linea) {
                             System.out.println(jugador.nombre + " canta línea con este cartón:");
@@ -97,12 +101,12 @@ public class Bingo {
                         }
                         break;
                     case 2: // Bingo (Lo cantamos si no se ha cantado en un turno anterior)
-                    if (!bingo) {
-                        System.out.println(jugador.nombre + " canta BINGO!! con este cartón:");
-                        System.out.println(carton);
-                        nuevoBingo = true;
-                    }
-                    break;
+                        if (!bingo) {
+                            System.out.println(jugador.nombre + " canta BINGO!! con este cartón:");
+                            System.out.println(carton);
+                            nuevoBingo = true;
+                        }
+                        break;
                 }
             }
         }
@@ -220,7 +224,30 @@ class Carton {
      * @return
      */
     public int revisarCarton(int[] numerosSorteo) {
-        return 0;
+        boolean linea = false;
+        boolean bingo = false;
+        int total = 0;
+        for (int i = 0; i < MAX_FILAS; i++) {
+            int fila = 0;
+            for (int j = 0; j < MAX_COLS; j++) {
+                for (int n = 0; n < numerosSorteo.length; n++) {
+                    if (numeros[i][j] == numerosSorteo[n]) {
+                        fila++;
+                    }
+                }
+            }
+            if (fila == MAX_COLS) {
+                linea = true;
+                total++;
+            }
+        }
+        if (total == MAX_FILAS)
+            bingo = true;
+        if (bingo) {
+            return 2;
+        } else if (linea) {
+            return 1;
+        } else
+            return 0;
     }
-
 }

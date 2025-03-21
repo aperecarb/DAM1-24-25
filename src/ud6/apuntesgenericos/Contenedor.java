@@ -1,3 +1,6 @@
+package ud6.apuntesgenericos;
+
+import ud5.apuntesherencia.Persona;
 
 class Contenedor<T> {
 
@@ -17,7 +20,7 @@ class Contenedor<T> {
     }
 
     public static void main(String[] args) {
-        // Contenedor<Integer> c = new Contenedor<Integer>(); 
+        //Contenedor<Integer> c = new Contenedor<Integer>(); 
         // Podemos omitir el tipo en el constructor a la derecha
         Contenedor<Integer> c = new Contenedor<>();
 
@@ -29,7 +32,9 @@ class Contenedor<T> {
         // c.guardar ("Hola"); // Generaría un error de compilación
 
         Contenedor<Double> c1 = new Contenedor<>(); // Contenedor de números reales
-        //Contenedor<Persona> c2 = new Contenedor<>(); // Contenedor de
+        Contenedor<Persona> c2 = new Contenedor<>(); // Contenedor de
+        c2.guardar(new Persona());
+
 
     }
 }
