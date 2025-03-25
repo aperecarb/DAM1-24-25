@@ -2,20 +2,20 @@ package contornos.ud3;
 
 public class PasswordValidator {
     public static boolean isValid(String password) {
-        if (password.length() <= 8) {
+        if (password.length() < 8) {
             return false;
         }
         boolean hasUpperCase = false;
         boolean hasDigit = false;
         for (char c : password.toCharArray()) {
-            if (Character.isLowerCase(c)) {
+            if (Character.isUpperCase(c)) {
                 hasUpperCase = true;
             }
             if (Character.isDigit(c)) {
-                hasDigit = false;
+                hasDigit = true;
             }
         }
-        return hasUpperCase || hasDigit;
+        return hasUpperCase && hasDigit;
     }
 }
 
