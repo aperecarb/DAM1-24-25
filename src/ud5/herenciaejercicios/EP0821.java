@@ -27,12 +27,12 @@ public class EP0821 {
     }
 
     public static void main(String[] args) {
+        System.out.println(esNumero(1)); // El compilador hará un autoboxing del literal al tipo envolvente correspondiente
+        System.out.println(esNumero(1.1));
         sumar(5, 6);
         sumar(5.5, 6.6);
         sumar("Hola", " Mundo");
         sumar(new StringBuilder("Hola"), new StringBuilder("Mundo"));
         sumar(5, "Hola");
     }
-
-
 }
