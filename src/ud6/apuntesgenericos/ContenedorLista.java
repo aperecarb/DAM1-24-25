@@ -1,6 +1,7 @@
 package ud6.apuntesgenericos;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 import ud5.apuntesherencia.Persona;
 import ud5.rol.Personaje;
@@ -14,7 +15,7 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
 
     void insertarAlPrincipio(T nuevo) {
         objetos = Arrays.copyOf(objetos, objetos.length + 1);
-        for (int i = objetos.length - 1; i > 0 ; i--) {
+        for (int i = objetos.length - 1; i > 0; i--) {
             objetos[i] = objetos[i - 1];
         }
         objetos[0] = nuevo;
@@ -60,6 +61,14 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         return Arrays.toString(objetos);
     }
 
+    T get(int indice) {
+        return objetos[indice];
+    }
+
+    void ordenar(Comparator<T> c) {
+        Arrays.sort(objetos, c);
+    }
+
     public static void main(String[] args) {
         ContenedorLista<Integer> lista = new ContenedorLista<>(new Integer[0]);
         lista.insertarAlFinal(1);
@@ -67,8 +76,15 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         lista.insertarAlFinal(3);
         lista.insertarAlPrincipio(4);
         System.out.println(lista);
+        // Ordenar descendentemente
+        Comparator<Integer> comp = Comparator.naturalOrder();
+        lista.ordenar(comp.reversed());
+        System.out.println(lista);
+
+        // Ordenar ascendentemente
         lista.ordenar();
-        System.out.println(lista);        
+        System.out.println(lista);
+
         System.out.println(lista.extraerDelPrincipio());
         System.out.println(lista);
         System.out.println(lista.extraerDelFinal());
