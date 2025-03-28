@@ -3,8 +3,9 @@ package ud6.apuntesgenericos;
 import java.util.Arrays;
 
 import ud5.apuntesherencia.Persona;
+import ud5.rol.Personaje;
 
-public class ContenedorLista<T> {
+public class ContenedorLista<T> implements Pila<T>, Cola<T> {
     T[] objetos;
 
     public ContenedorLista(T[] t) {
@@ -13,8 +14,8 @@ public class ContenedorLista<T> {
 
     void insertarAlPrincipio(T nuevo) {
         objetos = Arrays.copyOf(objetos, objetos.length + 1);
-        for (int i = 0; i < objetos.length - 1; i++) {
-            objetos[i + 1] = objetos[i];
+        for (int i = objetos.length - 1; i > 0 ; i--) {
+            objetos[i] = objetos[i - 1];
         }
         objetos[0] = nuevo;
     }
@@ -28,10 +29,10 @@ public class ContenedorLista<T> {
         T valor = null;
         if (objetos.length > 0) {
             valor = objetos[0];
-            for (int i = 0; i < objetos.length; i++)
-                objetos[i] = objetos[i+1];
+            for (int i = 0; i < objetos.length - 1; i++)
+                objetos[i] = objetos[i + 1];
             objetos = Arrays.copyOf(objetos, objetos.length - 1);
-        } 
+        }
         return valor;
     }
 
@@ -39,16 +40,19 @@ public class ContenedorLista<T> {
         T valor = null;
         if (objetos.length > 0) {
             valor = objetos[objetos.length - 1];
-            objetos = Arrays.copyOf(objetos, objetos.length - 1);            
+            objetos = Arrays.copyOf(objetos, objetos.length - 1);
         }
         return valor;
     }
 
     void ordenar() {
-        /* Generará una excepción si T no es Comparable "T cannot be cast to class java.lang.Comparable"
-         * Se puede arreglar indicando que T debe implementar Comparable "T extends Comparable"
+        /*
+         * Generará una excepción si T no es Comparable
+         * "T cannot be cast to class java.lang.Comparable"
+         * Se puede arreglar indicando que T debe implementar Comparable
+         * "T extends Comparable"
          */
-        Arrays.sort(objetos);  
+        Arrays.sort(objetos);
     }
 
     @Override
@@ -61,17 +65,61 @@ public class ContenedorLista<T> {
         lista.insertarAlFinal(1);
         lista.insertarAlFinal(2);
         lista.insertarAlFinal(3);
+        lista.insertarAlPrincipio(4);
         System.out.println(lista);
+        lista.ordenar();
+        System.out.println(lista);        
+        System.out.println(lista.extraerDelPrincipio());
+        System.out.println(lista);
+        System.out.println(lista.extraerDelFinal());
 
-        ContenedorLista<Persona> listaP = new ContenedorLista<>(new Persona[0]);
-        listaP.insertarAlFinal(new Persona("Pepe"));
-        listaP.insertarAlFinal(new Persona("Maria"));
-        listaP.insertarAlFinal(new Persona("Lola"));
-        System.out.println(listaP);
+        Pila<Integer> pila = lista;
+        pila.apilar(5);
+        System.out.println(pila.desapilar());
 
-        listaP.ordenar();
+        Cola<Integer> cola = lista;
+        cola.encolar(5); // 2, 3, 5
+        System.out.println(cola.desencolar()); // Saco el 2, Quedan 3, 5
 
-        System.out.println(listaP);
+        /*
+         * ContenedorLista<Persona> listaP = new ContenedorLista<>(new Persona[0]);
+         * listaP.insertarAlFinal(new Persona("Pepe"));
+         * listaP.insertarAlFinal(new Persona("Maria"));
+         * listaP.insertarAlFinal(new Persona("Lola"));
+         * System.out.println(listaP);
+         * 
+         * listaP.ordenar();
+         * 
+         * System.out.println(listaP);
+         */
+
+        /*
+         * ContenedorLista<Personaje> p = new ContenedorLista<>(new Personaje[0]);
+         * p.insertarAlFinal(new Personaje("Pepe"));
+         * p.insertarAlFinal(new Personaje("Maria"));
+         * p.ordenar();
+         */
+
+    }
+
+    @Override
+    public void apilar(T e) {
+        insertarAlFinal(e);
+    }
+
+    @Override
+    public T desapilar() {
+        return extraerDelFinal();
+    }
+
+    @Override
+    public void encolar(T e) {
+        insertarAlFinal(e);
+    }
+
+    @Override
+    public T desencolar() {
+        return extraerDelPrincipio();
     }
 
 }
