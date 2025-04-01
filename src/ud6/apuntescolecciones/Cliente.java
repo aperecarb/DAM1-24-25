@@ -59,10 +59,9 @@ public class Cliente implements Comparable<Cliente>{
         for (Cliente cliente : clientes) {
             System.out.println(cliente.nombre);
 
-            /* ERROR: Con un bucle for each no podemos borrar elementos de la colección
+            /* ERROR: Con un bucle for each no podemos borrar elementos de la colección*/
               if (cliente.nombre.equals("Pepe"))
-                clientes.remove(cliente);
-            */
+                clientes.remove(cliente);            
         }
 
         System.out.println("IMPRESIÓN CON ITERADOR");
